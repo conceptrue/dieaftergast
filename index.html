@@ -882,17 +882,9 @@
 
   <!-- FOOTER -->
   <footer>
-    <span id="visitor-count"></span>
-    <br>dieaftergast.nl
+    <a href="https://88x31.lol" style="opacity: 0.4; transition: opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='0.4'"><img src="https://88x31.lol/counter.gif?theme=dark" alt="Visitors" width="88" height="31" style="display:block; margin: 0 auto 0.8rem;"></a>
+    dieaftergast.nl
   </footer>
-  <script>
-    fetch('https://api.counterapi.dev/v1/dieaftergast-nl/visits/up')
-      .then(function(r) { return r.json(); })
-      .then(function(data) {
-        document.getElementById('visitor-count').textContent = data.count + ' visitors';
-      })
-      .catch(function() {});
-  </script>
 
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox" onclick="closeLightbox()">
