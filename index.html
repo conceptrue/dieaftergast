@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D.A.G. — Die Aftergast</title>
+  <meta name="description" content="In herinnering aan Wouter 'DieAfterGast' Bollen — Industrial Acid Tribe & Underground Techno">
+  <meta property="og:title" content="D.A.G. — Wouter Bollen">
+  <meta property="og:description" content="In herinnering aan Wouter 'DieAfterGast' Bollen — Industrial Acid Tribe & Underground Techno">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dieaftergast.nl">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600&family=Audiowide&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --neon-cyan: #00f0ff;
+      --neon-pink: #ff2d95;
+      --neon-orange: #ff6a00;
+      --dark-bg: #0a0a12;
+      --grid-color: rgba(0, 240, 255, 0.3);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background: var(--dark-bg);
+      color: #e0e0e0;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10, 10, 18, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 240, 255, 0.15);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      height: 56px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.5rem 0;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--neon-cyan);
+      text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 101;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: rgba(255,255,255,0.7);
+      margin: 5px 0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      pointer-events: none;
+    }
+
+    .hero-agency {
+      font-family: 'Audiowide', 'Orbitron', sans-serif;
+      font-size: clamp(0.55rem, 1.6vw, 0.95rem);
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 2.5rem;
+      text-shadow: 0 0 15px rgba(255,255,255,0.15);
+    }
+
+    .hero-represents {
+      font-family: 'Audiowide', 'Orbitron', sans-serif;
+      font-size: clamp(0.45rem, 1vw, 0.65rem);
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-logo {
+      font-family: 'Jost', sans-serif;
+      font-weight: 100;
+      font-size: clamp(4rem, 12vw, 10rem);
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.88);
+      margin-bottom: 0.5rem;
+      filter: drop-shadow(0 0 30px rgba(255,255,255,0.15)) drop-shadow(0 0 60px rgba(255,200,200,0.08));
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-triangle {
+      height: 0.82em;
+      width: 0.82em;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .logo-dot {
+      margin: 0 -0.02em;
+    }
+
+    .hero-tagline {
+      font-family: 'Audiowide', 'Orbitron', sans-serif;
+      font-size: clamp(0.5rem, 1.5vw, 0.9rem);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+      margin-top: 1.5rem;
+    }
+
+    .hero-dates {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(0.5rem, 1.1vw, 0.75rem);
+      letter-spacing: 0.25em;
+      color: rgba(255,255,255,0.3);
+      margin-top: 1rem;
+    }
+
+    /* ── MEMORIAL TEXT ── */
+    .memorial-text {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .memorial-title {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 0.3rem;
+    }
+
+    .memorial-subtitle {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      font-style: italic;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 2.5rem;
+    }
+
+    .memorial-text p {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 1.5rem;
+    }
+
+    .memorial-text em {
+      font-style: italic;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* ── SECTIONS ── */
+    section.content-section {
+      position: relative;
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink), transparent);
+    }
+
+    /* ── PHOTO GRID ── */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .photo-card {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 240, 255, 0.1);
+      transition: border-color 0.3s, transform 0.3s;
+      cursor: pointer;
+    }
+
+    .photo-card:hover {
+      border-color: var(--neon-cyan);
+      transform: scale(1.02);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(0,240,255,0.05), rgba(255,45,149,0.05));
+      color: rgba(255,255,255,0.2);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* ── POSTER AUTO-SCROLL ── */
+    .poster-scroll {
+      overflow: hidden;
+      width: 100%;
+      mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    }
+
+    .poster-track {
+      display: flex;
+      gap: 1.5rem;
+      animation: poster-scroll 30s linear infinite;
+      width: max-content;
+    }
+
+    .poster-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes poster-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .poster-card {
+      flex-shrink: 0;
+      width: 300px;
+      overflow: hidden;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 45, 149, 0.15);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .poster-card:hover {
+      border-color: var(--neon-pink);
+      box-shadow: 0 8px 30px rgba(255, 45, 149, 0.15);
+    }
+
+    .poster-card img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ── LINKS SECTION ── */
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 2rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(0, 240, 255, 0.1);
+      border-radius: 8px;
+      text-decoration: none;
+      color: #e0e0e0;
+      transition: border-color 0.3s, background 0.3s, transform 0.3s;
+    }
+
+    .link-card:hover {
+      border-color: var(--neon-cyan);
+      background: rgba(0, 240, 255, 0.05);
+      transform: translateY(-2px);
+    }
+
+    .link-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .link-icon svg {
+      width: 40px;
+      height: 40px;
+      fill: var(--neon-cyan);
+      transition: fill 0.3s;
+    }
+
+    .link-card:hover .link-icon svg {
+      fill: #fff;
+    }
+
+    .link-info h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+
+    .link-info p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ── MEMORIAL MESSAGE ── */
+    .memorial-msg {
+      text-align: center;
+      padding: 4rem 2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .memorial-msg p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .memorial-dates {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.3);
+      margin-top: 2rem;
+    }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(0,0,0,0.95);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .lightbox.active { display: flex; }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      font-family: 'Orbitron', sans-serif;
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+
+    .lightbox-close:hover { opacity: 1; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      border-top: 1px solid rgba(0, 240, 255, 0.08);
+      color: rgba(255,255,255,0.2);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* ── SEPARATOR ── */
+    .section-sep {
+      width: 120px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+      margin: 0 auto 5rem;
+    }
+
+    /* ── MUSIC TOGGLE ── */
+    .music-toggle {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 150;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      background: rgba(10, 10, 18, 0.8);
+      backdrop-filter: blur(8px);
+      color: var(--neon-cyan);
+      font-size: 1.4rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.3s, background 0.3s, transform 0.2s;
+    }
+
+    .music-toggle:hover {
+      border-color: var(--neon-cyan);
+      background: rgba(0, 240, 255, 0.1);
+      transform: scale(1.05);
+    }
+
+    .music-toggle.playing {
+      border-color: var(--neon-pink);
+      color: var(--neon-pink);
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 10px rgba(255, 45, 149, 0.2); }
+      50% { box-shadow: 0 0 20px rgba(255, 45, 149, 0.4); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      nav { justify-content: flex-end; padding: 0 1rem; }
+      .hamburger { display: block; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 56px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(10, 10, 18, 0.95);
+        backdrop-filter: blur(16px);
+        padding: 1.5rem 0;
+        gap: 0;
+        border-bottom: 1px solid rgba(0, 240, 255, 0.15);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 1rem 2rem; font-size: 0.7rem; width: 100%; text-align: center; }
+      .nav-links a:first-child { display: none; }
+      section.content-section { padding: 3rem 1rem; }
+      .photo-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+      .poster-card { width: 240px; }
+      .links-grid { grid-template-columns: 1fr; }
+      .hero-content { padding: 1rem 0.5rem; }
+      .hero-agency { font-size: 0.65rem; letter-spacing: 0.2em; }
+      .hero-logo { font-size: 26vw; letter-spacing: 0; }
+      .hero-tagline { font-size: 0.6rem; margin-top: 1rem; letter-spacing: 0.15em; }
+      .hero-dates { font-size: 0.55rem; letter-spacing: 0.15em; }
+      .music-toggle { bottom: 1rem; right: 1rem; width: 36px; height: 36px; font-size: 1rem; }
+    }
+
+    .yt-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-links">
+      <a href="#top">D.A.G.</a>
+      <a href="#photos">Photos</a>
+      <a href="#posters">Posters</a>
+      <a href="#music">Music</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO — Canvas-rendered synthwave scene matching the original image -->
+  <section class="hero" id="top">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-content">
+      <div style="flex: 0.55 1 0;"></div>
+      <p class="hero-agency">In Memory of</p>
+      <p class="hero-agency" style="margin-top: 0.3rem;">Wouter 'DieAfterGast' Bollen</p>
+      <!-- SVG Logo matching the original geometric design -->
+      <div class="hero-logo">D<span class="logo-dot">.</span><svg class="logo-triangle" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet"><polygon points="50,8 95,92 5,92" fill="none" stroke="rgba(255,255,255,0.88)" stroke-width="2.2" stroke-linejoin="miter"/></svg><span class="logo-dot">.</span>G</div>
+      <p class="hero-tagline">Industrial Acid Tribe & Underground Techno</p>
+      <p class="hero-dates">&#10038; 14&middot;08&middot;1984 &nbsp;&mdash;&nbsp; &#10013; 05&middot;03&middot;2026</p>
+      <div style="flex: 1 1 0;"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT / MEMORIAL TEXT -->
+  <section class="content-section" id="about">
+    <div class="memorial-text">
+      <h2 class="memorial-title">Wouter Bollen (1984 – 2026) — "DieAfterGast"</h2>
+      <p class="memorial-subtitle">Raver at heart, connector of a scene</p>
+
+      <p>On March 5, 2026, the Maastricht rave scene lost one of its most cherished souls. Wouter Bollen, 41 years old, passed away unexpectedly, leaving behind a silence on the dancefloor that will be hard to fill.</p>
+
+      <p>Those who knew Wouter, knew DieAfterGast. A name worn with a grin and total conviction, because Wouter truly was the one who stayed, who kept the energy alive long after others had gone home. Not out of habit, but out of a genuine, unshakeable love for the music. For the moment. For the people around him.</p>
+
+      <p>As a DJ, he understood what a set was supposed to do: not impress, but connect. He didn't play for a crowd, he played <em>with</em> them. His sets reflected who he was as a person: honest, warm, unpretentious, yet carrying a depth that only hit you when the bass settled into your chest.</p>
+
+      <p>But Wouter's impact stretched far beyond the decks. He was one of those rare people who moved freely between crews, collectives, and organisations within the scene, not as a networker, but as a genuine bridge builder. Where others saw rivalry or distance, Wouter saw common ground. He brought people to the table, connected promoters, artists, and volunteers, and quietly helped shape a scene that was bigger and more unified because he was part of it.</p>
+
+      <p>He also believed deeply in nurturing new talent. Wouter was the kind of person who fought for the smaller names, the up-and-coming DJs who just needed one real shot. He understood that a line-up isn't only about pulling crowds; it's about building a future for the scene. More than once, he used his voice and his connections to get those names on a poster, and more than once, those names went on to become faces the scene came to love. That was no coincidence. That was Wouter.</p>
+
+      <p>Maastricht's rave community was stronger, more connected, and more alive because he was part of it. And on a personal level, he was the one who welcomed new faces, embraced the veterans, and somehow always ended up laughing with strangers who didn't stay strangers for long.</p>
+      <p>Wouter leaves behind a community that is mourning, but also one that carries everything he stood for: togetherness, passion, and the belief that music is most powerful when it brings people together.</p>
+      <p>Rest easy, Wouter. The music plays on, for you.</p>
+      <p><em>Rave In Peace, DieAfterGast.</em> 🖤</p>
+    </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- PHOTOS -->
+  <section class="content-section" id="photos">
+    <h2 class="section-title">Photos</h2>
+    <div class="photo-grid" id="photo-grid">
+      <div class="photo-card"><img src="photos/wouter-1.jpg" alt="Wouter" loading="lazy"></div>
+      <div class="photo-card"><img src="photos/wouter-2.jpg" alt="Wouter" loading="lazy"></div>
+      <div class="photo-card"><img src="photos/wouter-3.jpg" alt="Wouter" loading="lazy"></div>
+      <div class="photo-card"><img src="photos/wouter-4.jpg" alt="Wouter" loading="lazy"></div>
+      <div class="photo-card"><img src="photos/wouter-5.jpg" alt="Wouter" loading="lazy"></div>
+      <div class="photo-card"><img src="photos/wouter-6.jpg" alt="Wouter" loading="lazy"></div>
+      <div class="photo-card"><img src="photos/wouter-7.jpg" alt="Wouter" loading="lazy"></div>
+      <div class="photo-card"><img src="photos/wouter-8.jpg" alt="Wouter" loading="lazy"></div>
+      <div class="photo-card"><img src="photos/wouter-9.jpg" alt="Wouter" loading="lazy"></div>
+    </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- POSTERS -->
+  <section class="content-section" id="posters">
+    <h2 class="section-title">DJ Posters</h2>
+    <div class="poster-scroll" id="poster-scroll">
+      <div class="poster-track">
+        <div class="poster-card"><img src="posters/poster-1.jpg" alt="DJ Poster" loading="lazy"></div>
+        <div class="poster-card"><img src="posters/poster-2.jpg" alt="DJ Poster" loading="lazy"></div>
+        <div class="poster-card"><img src="posters/poster-3.jpg" alt="DJ Poster" loading="lazy"></div>
+        <div class="poster-card"><img src="posters/poster-4.jpg" alt="DJ Poster" loading="lazy"></div>
+        <div class="poster-card"><img src="posters/poster-1.jpg" alt="DJ Poster" loading="lazy"></div>
+        <div class="poster-card"><img src="posters/poster-2.jpg" alt="DJ Poster" loading="lazy"></div>
+        <div class="poster-card"><img src="posters/poster-3.jpg" alt="DJ Poster" loading="lazy"></div>
+        <div class="poster-card"><img src="posters/poster-4.jpg" alt="DJ Poster" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- MUSIC -->
+  <section class="content-section" id="music">
+    <h2 class="section-title">Music</h2>
+    <div class="links-grid">
+      <a href="#" class="link-card" target="_blank" rel="noopener" id="spotify-link">
+        <div class="link-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+          </svg>
+        </div>
+        <div class="link-info">
+          <h3>Spotify Playlist</h3>
+          <p>His favorite tracks</p>
+        </div>
+      </a>
+
+      <a href="#" class="link-card" target="_blank" rel="noopener" id="sets-link">
+        <div class="link-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+          </svg>
+        </div>
+        <div class="link-info">
+          <h3>Sets & Mixes</h3>
+          <p>His DJ sets and productions</p>
+        </div>
+      </a>
+
+      <a href="#" class="link-card" target="_blank" rel="noopener" id="soundcloud-link">
+        <div class="link-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.175 12.225c-.051 0-.094.046-.101.1l-.233 2.154.233 2.105c.007.058.05.098.101.098.05 0 .09-.04.099-.098l.255-2.105-.27-2.154c-.009-.06-.05-.1-.1-.1m-.899.828c-.06 0-.091.037-.104.094L0 14.479l.172 1.282c.013.06.045.094.104.094.059 0 .09-.037.104-.094l.194-1.282-.194-1.332c-.014-.057-.045-.094-.104-.094m1.867-1.557c-.065 0-.111.05-.123.117l-.209 2.866.209 2.747c.012.067.058.117.123.117.064 0 .11-.05.122-.117l.236-2.747-.236-2.866c-.012-.067-.058-.117-.122-.117m.893-.467c-.07 0-.13.06-.14.13l-.2 3.333.2 3.178c.01.07.07.13.14.13.074 0 .13-.06.145-.13l.227-3.178-.227-3.333c-.015-.07-.071-.13-.145-.13m.907-.263c-.082 0-.148.065-.157.147l-.182 3.596.182 3.439c.009.082.075.147.157.147.08 0 .145-.065.158-.147l.205-3.439-.205-3.596c-.013-.082-.078-.147-.158-.147m.927-.163c-.088 0-.157.074-.163.163l-.167 3.759.167 3.584c.006.09.075.164.163.164.087 0 .156-.074.166-.164l.188-3.584-.188-3.759c-.01-.089-.079-.163-.166-.163m.964-.085c-.094 0-.168.079-.175.175l-.153 3.844.153 3.646c.007.098.081.175.175.175.094 0 .168-.077.178-.175l.172-3.646-.172-3.844c-.01-.096-.084-.175-.178-.175m.978.053c-.098 0-.178.085-.185.189l-.14 3.792.14 3.695c.007.104.087.189.185.189.101 0 .178-.085.189-.189l.158-3.695-.158-3.792c-.011-.104-.088-.189-.189-.189m1.002-.128c-.104 0-.189.09-.196.2l-.126 3.92.126 3.728c.007.11.092.2.196.2.106 0 .19-.09.2-.2l.14-3.728-.14-3.92c-.01-.11-.094-.2-.2-.2m1.014.012c-.11 0-.197.098-.205.212l-.112 3.908.112 3.752c.008.116.095.212.205.212.11 0 .197-.096.208-.212l.126-3.752-.126-3.908c-.011-.114-.098-.212-.208-.212m3.077-.508c-.196 0-.332.071-.468.166-.226-2.558-2.374-4.562-4.992-4.562-.652 0-1.277.132-1.838.36-.213.085-.27.174-.272.346v9.565c.002.178.142.33.315.345h7.255c1.38 0 2.5-1.122 2.5-2.504 0-1.38-1.12-2.502-2.5-2.502"/>
+          </svg>
+        </div>
+        <div class="link-info">
+          <h3>SoundCloud</h3>
+          <p>Tracks & live recordings</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- MEMORIAL -->
+  <div class="memorial-msg">
+    <p>The music never stops.</p>
+    <div class="memorial-dates"></div>
+  </div>
+
+  <!-- MUSIC TOGGLE -->
+  <button class="music-toggle" id="musicToggle" title="Play / Pause music" aria-label="Play music">
+    <span id="musicIcon">&#9654;</span>
+  </button>
+
+  <!-- Hidden YouTube player — replace VIDEO_ID with actual YouTube video/mix ID -->
+  <div class="yt-hidden">
+    <div id="yt-player"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>dieaftergast.nl</footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <script>
+    // ═══════════════════════════════════════════════════
+    // CANVAS HERO — Exact reproduction of the D.A.G. image
+    // Synthwave grid with dual-color lines, warm sky gradient,
+    // twinkling stars, and neon horizon glow
+    // ═══════════════════════════════════════════════════
+    (function() {
+      const canvas = document.getElementById('heroCanvas');
+      const ctx = canvas.getContext('2d');
+      let W, H, horizonY;
+      let time = 0;
+      let stars = [];
+
+      function resize() {
+        W = canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+        H = canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+        W = canvas.offsetWidth;
+        H = canvas.offsetHeight;
+        horizonY = H * 0.58;
+        generateStars();
+      }
+
+      function generateStars() {
+        stars = [];
+        const count = Math.floor(W * H / 6000);
+        for (let i = 0; i < count; i++) {
+          stars.push({
+            x: Math.random() * W,
+            y: Math.random() * horizonY * 0.95,
+            size: Math.random() < 0.15 ? 2 : (Math.random() < 0.4 ? 1.5 : 1),
+            phase: Math.random() * Math.PI * 2,
+            speed: 0.03 + Math.random() * 0.07
+          });
+        }
+      }
+
+      function drawSky() {
+        // Base dark sky
+        const skyGrad = ctx.createLinearGradient(0, 0, 0, horizonY);
+        skyGrad.addColorStop(0, '#05040a');
+        skyGrad.addColorStop(0.2, '#0d0815');
+        skyGrad.addColorStop(0.5, '#1a0a1e');
+        skyGrad.addColorStop(0.75, '#2d1020');
+        skyGrad.addColorStop(0.9, '#4a1525');
+        skyGrad.addColorStop(1, '#6a2030');
+        ctx.fillStyle = skyGrad;
+        ctx.fillRect(0, 0, W, horizonY + 2);
+
+        // Warm glow — upper right (red/orange)
+        const glowR = ctx.createRadialGradient(W * 0.7, H * 0.15, 0, W * 0.7, H * 0.15, W * 0.55);
+        glowR.addColorStop(0, 'rgba(180, 50, 20, 0.5)');
+        glowR.addColorStop(0.4, 'rgba(140, 30, 30, 0.3)');
+        glowR.addColorStop(1, 'transparent');
+        ctx.fillStyle = glowR;
+        ctx.fillRect(0, 0, W, horizonY);
+
+        // Warm glow — center
+        const glowC = ctx.createRadialGradient(W * 0.5, H * 0.35, 0, W * 0.5, H * 0.35, W * 0.45);
+        glowC.addColorStop(0, 'rgba(160, 40, 20, 0.35)');
+        glowC.addColorStop(0.5, 'rgba(100, 20, 40, 0.2)');
+        glowC.addColorStop(1, 'transparent');
+        ctx.fillStyle = glowC;
+        ctx.fillRect(0, 0, W, horizonY);
+
+        // Purple tint — left
+        const glowL = ctx.createRadialGradient(W * 0.2, H * 0.25, 0, W * 0.2, H * 0.25, W * 0.4);
+        glowL.addColorStop(0, 'rgba(80, 15, 60, 0.3)');
+        glowL.addColorStop(1, 'transparent');
+        ctx.fillStyle = glowL;
+        ctx.fillRect(0, 0, W, horizonY);
+      }
+
+      function drawStars() {
+        for (const s of stars) {
+          const alpha = 0.3 + 0.7 * (0.5 + 0.5 * Math.sin(time * s.speed + s.phase));
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+          ctx.fill();
+        }
+      }
+
+      function drawGrid() {
+        const gridBottom = H;
+        const gridHeight = gridBottom - horizonY;
+        const vanishX = W / 2;
+        const numVerticalLines = 15;
+        const spacing = W / numVerticalLines;
+        const scrollSpeed = 0.015;
+        const scrollOffset = (time * scrollSpeed) % 1;
+
+        // Ground fill — dark below horizon
+        const groundGrad = ctx.createLinearGradient(0, horizonY, 0, H);
+        groundGrad.addColorStop(0, '#1a0a20');
+        groundGrad.addColorStop(0.3, '#0a0816');
+        groundGrad.addColorStop(1, '#050410');
+        ctx.fillStyle = groundGrad;
+        ctx.fillRect(0, horizonY, W, gridHeight);
+
+        // ── Horizontal lines (scrolling toward viewer) ──
+        const numHLines = 15;
+        for (let i = 0; i < numHLines; i++) {
+          const t = (i / numHLines + scrollOffset / numHLines);
+          if (t > 1) continue;
+          // Exponential distribution so lines bunch up near horizon
+          const perspT = Math.pow(t, 2.2);
+          const y = horizonY + perspT * gridHeight;
+
+          // Color: cyan near viewer, blending with orange near horizon
+          const cyanAmt = t;
+          const orangeAmt = 1 - t;
+          const r = Math.floor(0 * cyanAmt + 200 * orangeAmt);
+          const g = Math.floor(220 * cyanAmt + 120 * orangeAmt);
+          const b = Math.floor(255 * cyanAmt + 50 * orangeAmt);
+          const lineAlpha = 0.15 + 0.4 * t;
+
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(W, y);
+          ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${lineAlpha})`;
+          ctx.lineWidth = 0.8 + t * 0.5;
+          ctx.stroke();
+        }
+
+        // ── Vertical lines (converging to vanishing point) ──
+        const totalVLines = 20;
+        const halfLines = totalVLines / 2;
+        for (let i = -halfLines; i <= halfLines; i++) {
+          const bottomX = vanishX + i * spacing * 1.8;
+          const t = Math.abs(i) / halfLines;
+
+          // Color: cyan in center, orange toward edges
+          const r = Math.floor(0 + 200 * t);
+          const g = Math.floor(220 - 100 * t);
+          const b = Math.floor(255 - 200 * t);
+          const lineAlpha = 0.15 + 0.25 * (1 - t);
+
+          ctx.beginPath();
+          ctx.moveTo(vanishX, horizonY);
+          ctx.lineTo(bottomX, gridBottom);
+          ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${lineAlpha})`;
+          ctx.lineWidth = 0.6 + (1 - t) * 0.6;
+          ctx.stroke();
+        }
+      }
+
+      function drawHorizonGlow() {
+        // Bright neon glow line at the horizon
+        // Pink/magenta center glow
+        const glowH = 30;
+        const glow = ctx.createLinearGradient(0, horizonY - glowH, 0, horizonY + glowH);
+        glow.addColorStop(0, 'transparent');
+        glow.addColorStop(0.35, 'rgba(255, 100, 50, 0.1)');
+        glow.addColorStop(0.5, 'rgba(255, 60, 120, 0.4)');
+        glow.addColorStop(0.65, 'rgba(255, 100, 50, 0.1)');
+        glow.addColorStop(1, 'transparent');
+        ctx.fillStyle = glow;
+        ctx.fillRect(0, horizonY - glowH, W, glowH * 2);
+
+        // Thin bright line
+        ctx.beginPath();
+        ctx.moveTo(0, horizonY);
+        ctx.lineTo(W, horizonY);
+        const lineGrad = ctx.createLinearGradient(0, 0, W, 0);
+        lineGrad.addColorStop(0, 'rgba(0, 200, 255, 0.1)');
+        lineGrad.addColorStop(0.15, 'rgba(0, 240, 255, 0.6)');
+        lineGrad.addColorStop(0.4, 'rgba(255, 100, 200, 0.8)');
+        lineGrad.addColorStop(0.5, 'rgba(255, 255, 255, 0.9)');
+        lineGrad.addColorStop(0.6, 'rgba(255, 100, 200, 0.8)');
+        lineGrad.addColorStop(0.85, 'rgba(255, 150, 50, 0.6)');
+        lineGrad.addColorStop(1, 'rgba(255, 100, 0, 0.1)');
+        ctx.strokeStyle = lineGrad;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Second softer glow line
+        ctx.beginPath();
+        ctx.moveTo(0, horizonY);
+        ctx.lineTo(W, horizonY);
+        ctx.strokeStyle = 'rgba(255, 150, 100, 0.3)';
+        ctx.lineWidth = 6;
+        ctx.stroke();
+      }
+
+      // Pre-render static sky to an offscreen canvas so it doesn't flicker
+      let skyCanvas = null;
+
+      function renderSkyOnce() {
+        skyCanvas = document.createElement('canvas');
+        skyCanvas.width = canvas.width;
+        skyCanvas.height = canvas.height;
+        const skyCtx = skyCanvas.getContext('2d');
+        skyCtx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
+
+        // Draw sky onto offscreen canvas
+        const skyGrad = skyCtx.createLinearGradient(0, 0, 0, horizonY);
+        skyGrad.addColorStop(0, '#05040a');
+        skyGrad.addColorStop(0.2, '#0d0815');
+        skyGrad.addColorStop(0.5, '#1a0a1e');
+        skyGrad.addColorStop(0.75, '#2d1020');
+        skyGrad.addColorStop(0.9, '#4a1525');
+        skyGrad.addColorStop(1, '#6a2030');
+        skyCtx.fillStyle = skyGrad;
+        skyCtx.fillRect(0, 0, W, horizonY + 2);
+
+        const glowR = skyCtx.createRadialGradient(W * 0.7, H * 0.15, 0, W * 0.7, H * 0.15, W * 0.55);
+        glowR.addColorStop(0, 'rgba(180, 50, 20, 0.5)');
+        glowR.addColorStop(0.4, 'rgba(140, 30, 30, 0.3)');
+        glowR.addColorStop(1, 'transparent');
+        skyCtx.fillStyle = glowR;
+        skyCtx.fillRect(0, 0, W, horizonY);
+
+        const glowC = skyCtx.createRadialGradient(W * 0.5, H * 0.35, 0, W * 0.5, H * 0.35, W * 0.45);
+        glowC.addColorStop(0, 'rgba(160, 40, 20, 0.35)');
+        glowC.addColorStop(0.5, 'rgba(100, 20, 40, 0.2)');
+        glowC.addColorStop(1, 'transparent');
+        skyCtx.fillStyle = glowC;
+        skyCtx.fillRect(0, 0, W, horizonY);
+
+        const glowL = skyCtx.createRadialGradient(W * 0.2, H * 0.25, 0, W * 0.2, H * 0.25, W * 0.4);
+        glowL.addColorStop(0, 'rgba(80, 15, 60, 0.3)');
+        glowL.addColorStop(1, 'transparent');
+        skyCtx.fillStyle = glowL;
+        skyCtx.fillRect(0, 0, W, horizonY);
+
+        // Ground fill
+        const groundGrad = skyCtx.createLinearGradient(0, horizonY, 0, H);
+        groundGrad.addColorStop(0, '#1a0a20');
+        groundGrad.addColorStop(0.3, '#0a0816');
+        groundGrad.addColorStop(1, '#050410');
+        skyCtx.fillStyle = groundGrad;
+        skyCtx.fillRect(0, horizonY, W, H - horizonY);
+      }
+
+      function draw() {
+        // Set canvas size without creating a new context each frame
+        const targetW = canvas.offsetWidth * window.devicePixelRatio;
+        const targetH = canvas.offsetHeight * window.devicePixelRatio;
+        if (canvas.width !== targetW || canvas.height !== targetH) {
+          canvas.width = targetW;
+          canvas.height = targetH;
+          W = canvas.offsetWidth;
+          H = canvas.offsetHeight;
+          horizonY = H * 0.58;
+          renderSkyOnce();
+          generateStars();
+        }
+        ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
+
+        // Blit the pre-rendered sky (no flicker)
+        ctx.drawImage(skyCanvas, 0, 0, W, H);
+
+        drawStars();
+        drawGrid();
+        drawHorizonGlow();
+
+        time += 1;
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener('resize', () => {
+        resize();
+        renderSkyOnce();
+      });
+
+      resize();
+      renderSkyOnce();
+      draw();
+    })();
+
+    // ── Lightbox ──
+    function openLightbox(el) {
+      const img = el.querySelector('img');
+      if (!img) return;
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox').classList.add('active');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // ── Active nav on scroll ──
+    const sections = document.querySelectorAll('section[id], .content-section[id]');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY + 100;
+      sections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        const id = section.getAttribute('id');
+        const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+        if (link) {
+          if (scrollY >= top && scrollY < top + height) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        }
+      });
+    });
+
+    // ── Hamburger menu ──
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // ── YouTube Music Player ──
+    // Random pick from Wouter's tracks on each page load
+    const YT_VIDEOS = ['ly4MFd-YzEE', 'bE7DUQDqspo', 'C6HEUswaEPY'];
+    const YT_VIDEO_ID = YT_VIDEOS[Math.floor(Math.random() * YT_VIDEOS.length)];
+    let ytPlayer = null;
+    let musicPlaying = false;
+
+    // Load YouTube IFrame API
+    const ytScript = document.createElement('script');
+    ytScript.src = 'https://www.youtube.com/iframe_api';
+    document.head.appendChild(ytScript);
+
+    window.onYouTubeIframeAPIReady = function() {
+      ytPlayer = new YT.Player('yt-player', {
+        width: '1',
+        height: '1',
+        videoId: YT_VIDEO_ID,
+        playerVars: {
+          autoplay: 0,
+          loop: 1,
+          playlist: YT_VIDEO_ID
+        },
+        events: {
+          onReady: function() {
+            ytPlayer.setVolume(60);
+          },
+          onStateChange: function(e) {
+            if (e.data === YT.PlayerState.ENDED) {
+              ytPlayer.playVideo(); // loop
+            }
+          }
+        }
+      });
+    };
+
+    document.getElementById('musicToggle').addEventListener('click', function() {
+      if (!ytPlayer || !ytPlayer.playVideo) return;
+      const btn = this;
+      const icon = document.getElementById('musicIcon');
+      if (musicPlaying) {
+        ytPlayer.pauseVideo();
+        btn.classList.remove('playing');
+        icon.innerHTML = '&#9654;'; // play triangle
+        musicPlaying = false;
+      } else {
+        ytPlayer.playVideo();
+        btn.classList.add('playing');
+        icon.innerHTML = '&#10074;&#10074;'; // pause bars
+        musicPlaying = true;
+      }
+    });
+  </script>
+</body>
+</html>
