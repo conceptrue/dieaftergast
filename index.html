@@ -886,14 +886,12 @@
     <br>dieaftergast.nl
   </footer>
   <script>
-    // Simple visitor counter using CountAPI alternative
-    (function() {
-      const key = 'dieaftergast-nl';
-      const url = 'https://api.counterapi.dev/v1/' + key + '/visits/up';
-      fetch(url).then(r => r.json()).then(data => {
+    fetch('https://api.counterapi.dev/v1/dieaftergast-nl/visits/up')
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
         document.getElementById('visitor-count').textContent = data.count + ' visitors';
-      }).catch(() => {});
-    })();
+      })
+      .catch(function() {});
   </script>
 
   <!-- LIGHTBOX -->
