@@ -337,64 +337,87 @@
       display: block;
     }
 
-    /* ── LINKS SECTION ── */
-    .links-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1rem;
+    /* ── MUSIC CAROUSEL ── */
+    .music-scroll {
+      overflow: hidden;
+      width: 100%;
+      mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
     }
 
-    .link-card {
+    .music-track {
       display: flex;
-      align-items: center;
       gap: 1.5rem;
-      padding: 2rem;
+      animation: music-scroll 35s linear infinite;
+      width: max-content;
+    }
+
+    .music-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes music-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .music-card {
+      flex-shrink: 0;
+      width: 280px;
+      overflow: hidden;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 240, 255, 0.12);
       background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(0, 240, 255, 0.1);
-      border-radius: 8px;
       text-decoration: none;
       color: #e0e0e0;
-      transition: border-color 0.3s, background 0.3s, transform 0.3s;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      display: block;
     }
 
-    .link-card:hover {
+    .music-card:hover {
       border-color: var(--neon-cyan);
-      background: rgba(0, 240, 255, 0.05);
-      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 240, 255, 0.12);
     }
 
-    .link-icon {
-      flex-shrink: 0;
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .music-card-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
     }
 
-    .link-icon svg {
-      width: 40px;
-      height: 40px;
-      fill: var(--neon-cyan);
-      transition: fill 0.3s;
+    .music-card-info {
+      padding: 0.8rem 1rem;
     }
 
-    .link-card:hover .link-icon svg {
-      fill: #fff;
-    }
-
-    .link-info h3 {
+    .music-card-title {
       font-family: 'Orbitron', sans-serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
+      font-size: 0.65rem;
+      letter-spacing: 0.05em;
       color: #fff;
       margin-bottom: 0.3rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .link-info p {
-      font-size: 0.85rem;
+    .music-card-artist {
+      font-size: 0.75rem;
       color: rgba(255,255,255,0.4);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .music-card-platform {
+      display: inline-block;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.5rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--neon-cyan);
+      opacity: 0.6;
+      margin-top: 0.4rem;
     }
 
     /* ── MEMORIAL MESSAGE ── */
@@ -533,7 +556,7 @@
       section.content-section { padding: 3rem 1rem; }
       .photo-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
       .poster-card { width: 240px; }
-      .links-grid { grid-template-columns: 1fr; }
+      .music-card { width: 240px; }
       .hero-content { padding: 1rem 0.5rem; }
       .hero-agency { font-size: 0.65rem; letter-spacing: 0.2em; }
       .hero-logo { font-size: 26vw; letter-spacing: 0; }
@@ -645,43 +668,135 @@
 
   <!-- MUSIC -->
   <section class="content-section" id="music">
-    <h2 class="section-title">Music</h2>
-    <div class="links-grid">
-      <a href="#" class="link-card" target="_blank" rel="noopener" id="spotify-link">
-        <div class="link-icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
-          </svg>
-        </div>
-        <div class="link-info">
-          <h3>Spotify Playlist</h3>
-          <p>His favorite tracks</p>
-        </div>
-      </a>
+    <h2 class="section-title">Sets & Mixes</h2>
+    <div class="music-scroll">
+      <div class="music-track">
+        <a href="https://soundcloud.com/teknownevents/dieaftergast-full-we-are-teknown-set-050523" target="_blank" rel="noopener" class="music-card">
+          <img class="music-card-img" src="https://i1.sndcdn.com/artworks-LTgMhi4ogQ7BAhp5-EnyP6Q-t500x500.png" alt="TEKNOWN LIVE SET">
+          <div class="music-card-info">
+            <div class="music-card-title">We are TEKNOWN — LIVE SET [05/05/23]</div>
+            <div class="music-card-artist">DieAfterGast</div>
+            <div class="music-card-platform">SoundCloud</div>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=lnW4VTpoWfM" target="_blank" rel="noopener" class="music-card">
+          <img class="music-card-img" src="https://img.youtube.com/vi/lnW4VTpoWfM/hqdefault.jpg" alt="Beats Of Love">
+          <div class="music-card-info">
+            <div class="music-card-title">Beats Of Love [066] — Het Keldertje, Heerlen</div>
+            <div class="music-card-artist">DieAfterGast (XZATIC Presents)</div>
+            <div class="music-card-platform">YouTube</div>
+          </div>
+        </a>
+        <a href="https://soundcloud.com/dieaftergast/concept-anno-2018-sri-lanka" target="_blank" rel="noopener" class="music-card">
+          <img class="music-card-img" src="https://i1.sndcdn.com/artworks-000320694078-dltnwn-t500x500.jpg" alt="Concept Anno 2018">
+          <div class="music-card-info">
+            <div class="music-card-title">Concept Anno 2018 (Sri-Lanka)</div>
+            <div class="music-card-artist">DieAfterGast</div>
+            <div class="music-card-platform">SoundCloud</div>
+          </div>
+        </a>
+        <a href="https://soundcloud.com/dieaftergast/05-hours-of-social-interuption-3-whos-bangin" target="_blank" rel="noopener" class="music-card">
+          <img class="music-card-img" src="https://i1.sndcdn.com/artworks-000132679819-5w7opy-t500x500.jpg" alt="Social Interuption">
+          <div class="music-card-info">
+            <div class="music-card-title">0.5 Hours of Social Interuption (#3)</div>
+            <div class="music-card-artist">DieAfterGast</div>
+            <div class="music-card-platform">SoundCloud</div>
+          </div>
+        </a>
+        <!-- duplicate for seamless loop -->
+        <a href="https://soundcloud.com/teknownevents/dieaftergast-full-we-are-teknown-set-050523" target="_blank" rel="noopener" class="music-card">
+          <img class="music-card-img" src="https://i1.sndcdn.com/artworks-LTgMhi4ogQ7BAhp5-EnyP6Q-t500x500.png" alt="TEKNOWN LIVE SET">
+          <div class="music-card-info">
+            <div class="music-card-title">We are TEKNOWN — LIVE SET [05/05/23]</div>
+            <div class="music-card-artist">DieAfterGast</div>
+            <div class="music-card-platform">SoundCloud</div>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=lnW4VTpoWfM" target="_blank" rel="noopener" class="music-card">
+          <img class="music-card-img" src="https://img.youtube.com/vi/lnW4VTpoWfM/hqdefault.jpg" alt="Beats Of Love">
+          <div class="music-card-info">
+            <div class="music-card-title">Beats Of Love [066] — Het Keldertje, Heerlen</div>
+            <div class="music-card-artist">DieAfterGast (XZATIC Presents)</div>
+            <div class="music-card-platform">YouTube</div>
+          </div>
+        </a>
+        <a href="https://soundcloud.com/dieaftergast/concept-anno-2018-sri-lanka" target="_blank" rel="noopener" class="music-card">
+          <img class="music-card-img" src="https://i1.sndcdn.com/artworks-000320694078-dltnwn-t500x500.jpg" alt="Concept Anno 2018">
+          <div class="music-card-info">
+            <div class="music-card-title">Concept Anno 2018 (Sri-Lanka)</div>
+            <div class="music-card-artist">DieAfterGast</div>
+            <div class="music-card-platform">SoundCloud</div>
+          </div>
+        </a>
+        <a href="https://soundcloud.com/dieaftergast/05-hours-of-social-interuption-3-whos-bangin" target="_blank" rel="noopener" class="music-card">
+          <img class="music-card-img" src="https://i1.sndcdn.com/artworks-000132679819-5w7opy-t500x500.jpg" alt="Social Interuption">
+          <div class="music-card-info">
+            <div class="music-card-title">0.5 Hours of Social Interuption (#3)</div>
+            <div class="music-card-artist">DieAfterGast</div>
+            <div class="music-card-platform">SoundCloud</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 
-      <a href="#" class="link-card" target="_blank" rel="noopener" id="sets-link">
-        <div class="link-icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
-          </svg>
-        </div>
-        <div class="link-info">
-          <h3>Sets & Mixes</h3>
-          <p>His DJ sets and productions</p>
-        </div>
-      </a>
+  <div class="section-sep"></div>
 
-      <a href="#" class="link-card" target="_blank" rel="noopener" id="soundcloud-link">
-        <div class="link-icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1.175 12.225c-.051 0-.094.046-.101.1l-.233 2.154.233 2.105c.007.058.05.098.101.098.05 0 .09-.04.099-.098l.255-2.105-.27-2.154c-.009-.06-.05-.1-.1-.1m-.899.828c-.06 0-.091.037-.104.094L0 14.479l.172 1.282c.013.06.045.094.104.094.059 0 .09-.037.104-.094l.194-1.282-.194-1.332c-.014-.057-.045-.094-.104-.094m1.867-1.557c-.065 0-.111.05-.123.117l-.209 2.866.209 2.747c.012.067.058.117.123.117.064 0 .11-.05.122-.117l.236-2.747-.236-2.866c-.012-.067-.058-.117-.122-.117m.893-.467c-.07 0-.13.06-.14.13l-.2 3.333.2 3.178c.01.07.07.13.14.13.074 0 .13-.06.145-.13l.227-3.178-.227-3.333c-.015-.07-.071-.13-.145-.13m.907-.263c-.082 0-.148.065-.157.147l-.182 3.596.182 3.439c.009.082.075.147.157.147.08 0 .145-.065.158-.147l.205-3.439-.205-3.596c-.013-.082-.078-.147-.158-.147m.927-.163c-.088 0-.157.074-.163.163l-.167 3.759.167 3.584c.006.09.075.164.163.164.087 0 .156-.074.166-.164l.188-3.584-.188-3.759c-.01-.089-.079-.163-.166-.163m.964-.085c-.094 0-.168.079-.175.175l-.153 3.844.153 3.646c.007.098.081.175.175.175.094 0 .168-.077.178-.175l.172-3.646-.172-3.844c-.01-.096-.084-.175-.178-.175m.978.053c-.098 0-.178.085-.185.189l-.14 3.792.14 3.695c.007.104.087.189.185.189.101 0 .178-.085.189-.189l.158-3.695-.158-3.792c-.011-.104-.088-.189-.189-.189m1.002-.128c-.104 0-.189.09-.196.2l-.126 3.92.126 3.728c.007.11.092.2.196.2.106 0 .19-.09.2-.2l.14-3.728-.14-3.92c-.01-.11-.094-.2-.2-.2m1.014.012c-.11 0-.197.098-.205.212l-.112 3.908.112 3.752c.008.116.095.212.205.212.11 0 .197-.096.208-.212l.126-3.752-.126-3.908c-.011-.114-.098-.212-.208-.212m3.077-.508c-.196 0-.332.071-.468.166-.226-2.558-2.374-4.562-4.992-4.562-.652 0-1.277.132-1.838.36-.213.085-.27.174-.272.346v9.565c.002.178.142.33.315.345h7.255c1.38 0 2.5-1.122 2.5-2.504 0-1.38-1.12-2.502-2.5-2.502"/>
-          </svg>
-        </div>
-        <div class="link-info">
-          <h3>SoundCloud</h3>
-          <p>Tracks & live recordings</p>
-        </div>
-      </a>
+  <!-- FAVORITE TRACKS -->
+  <section class="content-section" id="favorites">
+    <h2 class="section-title">Favorite Tracks</h2>
+    <div class="music-scroll">
+      <div class="music-track" style="animation-duration: 20s;">
+        <a href="https://www.youtube.com/watch?v=ly4MFd-YzEE" target="_blank" rel="noopener" class="music-card">
+          <img class="music-card-img" src="https://img.youtube.com/vi/ly4MFd-YzEE/hqdefault.jpg" alt="The end is never the end">
+          <div class="music-card-info">
+            <div class="music-card-title">The End Is Never The End</div>
+            <div class="music-card-artist">Abr. x Sandr&#248;se</div>
+            <div class="music-card-platform">YouTube</div>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=bE7DUQDqspo" target="_blank" rel="noopener" class="music-card">
+          <img class="music-card-img" src="https://img.youtube.com/vi/bE7DUQDqspo/hqdefault.jpg" alt="Will You Remember Me When I'm Gone?">
+          <div class="music-card-info">
+            <div class="music-card-title">Will You Remember Me When I'm Gone?</div>
+            <div class="music-card-artist">DJ Heartstring</div>
+            <div class="music-card-platform">YouTube</div>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=C6HEUswaEPY" target="_blank" rel="noopener" class="music-card">
+          <img class="music-card-img" src="https://img.youtube.com/vi/C6HEUswaEPY/hqdefault.jpg" alt="Missing You">
+          <div class="music-card-info">
+            <div class="music-card-title">Missing You</div>
+            <div class="music-card-artist">Target Demographic</div>
+            <div class="music-card-platform">YouTube</div>
+          </div>
+        </a>
+        <!-- duplicate for seamless loop -->
+        <a href="https://www.youtube.com/watch?v=ly4MFd-YzEE" target="_blank" rel="noopener" class="music-card">
+          <img class="music-card-img" src="https://img.youtube.com/vi/ly4MFd-YzEE/hqdefault.jpg" alt="The end is never the end">
+          <div class="music-card-info">
+            <div class="music-card-title">The End Is Never The End</div>
+            <div class="music-card-artist">Abr. x Sandr&#248;se</div>
+            <div class="music-card-platform">YouTube</div>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=bE7DUQDqspo" target="_blank" rel="noopener" class="music-card">
+          <img class="music-card-img" src="https://img.youtube.com/vi/bE7DUQDqspo/hqdefault.jpg" alt="Will You Remember Me When I'm Gone?">
+          <div class="music-card-info">
+            <div class="music-card-title">Will You Remember Me When I'm Gone?</div>
+            <div class="music-card-artist">DJ Heartstring</div>
+            <div class="music-card-platform">YouTube</div>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=C6HEUswaEPY" target="_blank" rel="noopener" class="music-card">
+          <img class="music-card-img" src="https://img.youtube.com/vi/C6HEUswaEPY/hqdefault.jpg" alt="Missing You">
+          <div class="music-card-info">
+            <div class="music-card-title">Missing You</div>
+            <div class="music-card-artist">Target Demographic</div>
+            <div class="music-card-platform">YouTube</div>
+          </div>
+        </a>
+      </div>
     </div>
   </section>
 
