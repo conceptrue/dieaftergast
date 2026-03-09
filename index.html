@@ -309,7 +309,7 @@
     .poster-track {
       display: flex;
       gap: 1.5rem;
-      animation: poster-scroll 30s linear infinite;
+      animation: poster-scroll 45s linear infinite;
       width: max-content;
     }
 
@@ -700,12 +700,19 @@
         <div class="poster-card"><img src="posters/poster-4.jpg" alt="DJ Poster" loading="lazy"></div>
         <div class="poster-card"><img src="posters/poster-5.jpg" alt="DJ Poster" loading="lazy"></div>
         <div class="poster-card"><img src="posters/poster-6.jpg" alt="DJ Poster" loading="lazy"></div>
+        <div class="poster-card"><img src="posters/poster-7.jpg" alt="De Overkant invites Vage Kennissen — 22 April" loading="lazy"></div>
+        <div class="poster-card"><img src="posters/poster-8.jpg" alt="Karna Knal — Vage Kennissen, Maastricht" loading="lazy"></div>
+        <div class="poster-card"><img src="posters/poster-9.jpg" alt="Karna Knal — DieAfterGast, Maastricht" loading="lazy"></div>
+        <!-- duplicate for seamless loop -->
         <div class="poster-card"><img src="posters/poster-1.jpg" alt="DJ Poster" loading="lazy"></div>
         <div class="poster-card"><img src="posters/poster-2.jpg" alt="DJ Poster" loading="lazy"></div>
         <div class="poster-card"><img src="posters/poster-3.jpg" alt="DJ Poster" loading="lazy"></div>
         <div class="poster-card"><img src="posters/poster-4.jpg" alt="DJ Poster" loading="lazy"></div>
         <div class="poster-card"><img src="posters/poster-5.jpg" alt="DJ Poster" loading="lazy"></div>
         <div class="poster-card"><img src="posters/poster-6.jpg" alt="DJ Poster" loading="lazy"></div>
+        <div class="poster-card"><img src="posters/poster-7.jpg" alt="De Overkant invites Vage Kennissen — 22 April" loading="lazy"></div>
+        <div class="poster-card"><img src="posters/poster-8.jpg" alt="Karna Knal — Vage Kennissen, Maastricht" loading="lazy"></div>
+        <div class="poster-card"><img src="posters/poster-9.jpg" alt="Karna Knal — DieAfterGast, Maastricht" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -792,7 +799,7 @@
   <section class="content-section" id="favorites">
     <h2 class="section-title">Favorite Tracks</h2>
     <div class="music-scroll">
-      <div class="music-track" style="animation-duration: 20s;">
+      <div class="music-track" style="animation-duration: 30s;">
         <a href="https://www.youtube.com/watch?v=ly4MFd-YzEE" target="_blank" rel="noopener" class="music-card">
           <img class="music-card-img" src="https://img.youtube.com/vi/ly4MFd-YzEE/hqdefault.jpg" alt="The end is never the end">
           <div class="music-card-info">
@@ -814,6 +821,22 @@
           <div class="music-card-info">
             <div class="music-card-title">Missing You</div>
             <div class="music-card-artist">Target Demographic</div>
+            <div class="music-card-platform">YouTube</div>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=HmrS1WGPHVM" target="_blank" rel="noopener" class="music-card">
+          <img class="music-card-img" src="https://img.youtube.com/vi/HmrS1WGPHVM/hqdefault.jpg" alt="Influenceur (LFEK Remix)">
+          <div class="music-card-info">
+            <div class="music-card-title">Influenceur (Bauernfeind &amp; Krampf LFEK Remix)</div>
+            <div class="music-card-artist">ascendant vierge</div>
+            <div class="music-card-platform">YouTube</div>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=UUeftmVOOq4" target="_blank" rel="noopener" class="music-card">
+          <img class="music-card-img" src="https://img.youtube.com/vi/UUeftmVOOq4/hqdefault.jpg" alt="Hungry For The Power (Jamie Jones Remix)">
+          <div class="music-card-info">
+            <div class="music-card-title">Hungry For The Power (Jamie Jones Remix)</div>
+            <div class="music-card-artist">Azari &amp; III</div>
             <div class="music-card-platform">YouTube</div>
           </div>
         </a>
@@ -839,6 +862,22 @@
           <div class="music-card-info">
             <div class="music-card-title">Missing You</div>
             <div class="music-card-artist">Target Demographic</div>
+            <div class="music-card-platform">YouTube</div>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=HmrS1WGPHVM" target="_blank" rel="noopener" class="music-card">
+          <img class="music-card-img" src="https://img.youtube.com/vi/HmrS1WGPHVM/hqdefault.jpg" alt="Influenceur (LFEK Remix)">
+          <div class="music-card-info">
+            <div class="music-card-title">Influenceur (Bauernfeind &amp; Krampf LFEK Remix)</div>
+            <div class="music-card-artist">ascendant vierge</div>
+            <div class="music-card-platform">YouTube</div>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=UUeftmVOOq4" target="_blank" rel="noopener" class="music-card">
+          <img class="music-card-img" src="https://img.youtube.com/vi/UUeftmVOOq4/hqdefault.jpg" alt="Hungry For The Power (Jamie Jones Remix)">
+          <div class="music-card-info">
+            <div class="music-card-title">Hungry For The Power (Jamie Jones Remix)</div>
+            <div class="music-card-artist">Azari &amp; III</div>
             <div class="music-card-platform">YouTube</div>
           </div>
         </a>
@@ -1216,7 +1255,7 @@
 
     // ── YouTube Music Player ──
     // Random pick from Wouter's tracks on each page load
-    const YT_VIDEOS = ['ly4MFd-YzEE', 'bE7DUQDqspo', 'C6HEUswaEPY'];
+    const YT_VIDEOS = ['ly4MFd-YzEE', 'bE7DUQDqspo', 'C6HEUswaEPY', 'HmrS1WGPHVM', 'UUeftmVOOq4'];
     const YT_VIDEO_ID = YT_VIDEOS[Math.floor(Math.random() * YT_VIDEOS.length)];
     let ytPlayer = null;
     let musicPlaying = false;
