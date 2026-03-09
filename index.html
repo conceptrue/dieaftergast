@@ -905,9 +905,18 @@
 
   <!-- MEMORIAL -->
   <div class="memorial-msg">
-    <p>"Als het niet uitmaakt waar je bent; kun je ook niet verdwalen"</p>
+    <p id="dagQuote"></p>
     <p class="memorial-quote-attr">— DieAfterGast</p>
   </div>
+  <script>
+    (function() {
+      var quotes = [
+        "Als het niet uitmaakt waar je bent; kun je ook niet verdwalen",
+        "Als het ongeluk in een klein hoekje zit, dan zit het geluk in de rest van de kamer!"
+      ];
+      document.getElementById('dagQuote').textContent = '\u201C' + quotes[Math.floor(Math.random() * quotes.length)] + '\u201D';
+    })();
+  </script>
 
   <!-- SOCIALS -->
   <div class="socials">
