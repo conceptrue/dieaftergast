@@ -191,6 +191,47 @@
       margin-top: 1rem;
     }
 
+    /* ── ANNOUNCEMENT BOX (remove after event) ── */
+    .announcement-box {
+      margin-top: 1.5rem;
+      background: rgba(0, 0, 0, 0.55);
+      border: 1px solid rgba(0, 240, 255, 0.25);
+      border-radius: 6px;
+      padding: 1.2rem 1.8rem;
+      max-width: 520px;
+      text-align: left;
+      backdrop-filter: blur(8px);
+      font-family: 'Rajdhani', sans-serif;
+      line-height: 1.6;
+    }
+    .announcement-box p {
+      margin: 0 0 0.6rem 0;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.8);
+    }
+    .announcement-box p:last-child { margin-bottom: 0; }
+    .announcement-box .ann-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--neon-cyan);
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+      text-align: center;
+    }
+    .announcement-box strong { color: #fff; }
+    .announcement-box em { color: rgba(255,255,255,0.55); font-style: italic; }
+    .announcement-box a {
+      color: var(--neon-cyan);
+      text-decoration: none;
+    }
+    .announcement-box a:hover { text-decoration: underline; }
+    .announcement-box .ann-sep {
+      border: none;
+      border-top: 1px solid rgba(0, 240, 255, 0.15);
+      margin: 0.8rem 0;
+    }
+
     /* ── MEMORIAL TEXT ── */
     .memorial-text {
       max-width: 720px;
@@ -602,8 +643,11 @@
       .hero-logo { font-size: 26vw; letter-spacing: 0; }
       .hero-tagline { font-size: 0.6rem; margin-top: 1rem; letter-spacing: 0.15em; }
       .hero-dates { font-size: 0.55rem; letter-spacing: 0.15em; margin-bottom: 1rem; }
-      .hero-content .top-spacer { flex: 0.3 1 0 !important; }
-      .hero-content .bottom-spacer { flex: 0.7 1 0 !important; }
+      .announcement-box { margin-top: 1rem; padding: 1rem 1.2rem; max-width: 90vw; }
+      .announcement-box p { font-size: 0.78rem; }
+      .announcement-box .ann-title { font-size: 0.55rem; }
+      .hero-content .top-spacer { flex: 0.1 1 0 !important; }
+      .hero-content .bottom-spacer { flex: 0.3 1 0 !important; }
       .music-toggle { bottom: 1rem; right: 1rem; width: 36px; height: 36px; font-size: 1rem; }
     }
 
@@ -642,6 +686,24 @@
       <div class="hero-logo">D<span class="logo-dot">.</span><svg class="logo-triangle" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet"><polygon points="50,8 95,92 5,92" fill="none" stroke="rgba(255,255,255,0.88)" stroke-width="2.2" stroke-linejoin="miter"/></svg><span class="logo-dot">.</span>G</div>
       <p class="hero-tagline">Industrial Acid Tribe & Underground Techno</p>
       <p class="hero-dates">&#10038; 14&middot;08&middot;1984 &nbsp;&mdash;&nbsp; &dagger; 05&middot;03&middot;2026</p>
+
+      <!-- ANNOUNCEMENT — remove after event -->
+      <div class="announcement-box">
+        <p class="ann-title">Afscheid &amp; KoffieRave</p>
+        <p>De afgelopen dagen hebben we gezien, gehoord en gevoeld hoe ongelooflijk geliefd onze zoon Wouter is. We willen graag iedereen, die onze jongen in zijn hart meedraagt, de gelegenheid geven om afscheid te nemen.</p>
+        <p>De afscheidsceremmonie vindt plaats op <strong>zaterdag 14 maart om 13:00 uur</strong> bij <strong>La Grande Suisse, Mari&euml;nwaard 61 te Maastricht</strong>.</p>
+        <p>Tegelijkertijd kan de ceremonie worden gevolgd via een livestream:<br>
+        Website: <a href="https://live-ceremonie.nl" target="_blank" rel="noopener">https://live-ceremonie.nl</a><br>
+        Plechtigheid ID: <strong>156142</strong><br>
+        Wachtwoord: <strong>abkxv2nebvtp</strong></p>
+        <p>Op <strong>donderdag 12 maart</strong> is, op hetzelfde adres, de mogelijkheid om persoonlijk afscheid te nemen van <strong>17:30 uur tot 19:00 uur</strong>.</p>
+        <p><em>We sturen bewust geen kaarten, ook zullen geen advertenties worden geplaatst.</em></p>
+        <p><em>Wie hem liefheeft weet hem te vinden, zoals hij hen.</em></p>
+        <hr class="ann-sep">
+        <p>Aansluitend wordt er een <strong>KoffieRave</strong> gehouden in de <strong>MuziekGieterij</strong> in Maastricht van <strong>14:30 tot 16:30 uur</strong>.</p>
+      </div>
+      <!-- /ANNOUNCEMENT -->
+
       <div class="bottom-spacer" style="flex: 1 1 0;"></div>
     </div>
   </section>
