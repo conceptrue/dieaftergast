@@ -559,6 +559,48 @@
 
     .lightbox-close:hover { opacity: 1; }
 
+    /* ── PLAYLISTS GRID ── */
+    .playlist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.2rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .playlist-card {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 240, 255, 0.12);
+      background: rgba(255,255,255,0.03);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .playlist-card:hover {
+      border-color: var(--neon-cyan);
+      box-shadow: 0 8px 30px rgba(0, 240, 255, 0.12);
+    }
+    .playlist-card iframe {
+      width: 100%;
+      height: 352px;
+      border: none;
+      display: block;
+    }
+    .playlist-profile-link {
+      display: inline-block;
+      margin-top: 1.2rem;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--neon-cyan);
+      text-decoration: none;
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      padding: 0.5rem 1.2rem;
+      border-radius: 4px;
+      transition: background 0.3s, color 0.3s;
+    }
+    .playlist-profile-link:hover {
+      background: rgba(0, 240, 255, 0.1);
+    }
+
     /* ── FOOTER ── */
     footer {
       text-align: center;
@@ -670,6 +712,7 @@
       <a href="#photos">Photos</a>
       <a href="#posters">Posters</a>
       <a href="#music">Music</a>
+      <a href="#playlists">Playlists</a>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -1026,6 +1069,49 @@
         </a>
       </div>
     </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- PLAYLISTS -->
+  <section id="playlists">
+    <h2>Playlists</h2>
+    <p style="color: rgba(255,255,255,0.6); margin-bottom: 1.5rem;">Curated by D.A.G / Deluxeflex</p>
+    <div class="playlist-grid">
+      <div class="playlist-card">
+        <iframe src="https://open.spotify.com/embed/playlist/3fYPg30O6MCUzEdw2BWlFG?theme=0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div class="playlist-card">
+        <iframe src="https://open.spotify.com/embed/playlist/3G8eQb7XzqcizFss0HrR2u?theme=0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div class="playlist-card">
+        <iframe src="https://open.spotify.com/embed/playlist/0CSVvyBc1158wWHFl2P5nJ?theme=0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div class="playlist-card">
+        <iframe src="https://open.spotify.com/embed/playlist/7MylfEhK92WhcSUpa4oEi6?theme=0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div class="playlist-card">
+        <iframe src="https://open.spotify.com/embed/playlist/5S2r2IfD2xxuvhKq4IoS4S?theme=0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div class="playlist-card">
+        <iframe src="https://open.spotify.com/embed/playlist/3yE8MBUfpV0bUKhVpqANd3?theme=0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div class="playlist-card">
+        <iframe src="https://open.spotify.com/embed/playlist/3slYAF6Sf6DsuFjbuJsecP?theme=0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div class="playlist-card">
+        <iframe src="https://open.spotify.com/embed/playlist/4Ttv5VugK663oQs5hWZSSM?theme=0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div class="playlist-card">
+        <iframe src="https://open.spotify.com/embed/playlist/63X81UVCtyw23fmRnmvfJi?theme=0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div class="playlist-card">
+        <iframe src="https://open.spotify.com/embed/playlist/0UlW6BL1ttUa02B7PgDL9R?theme=0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+    <a href="https://open.spotify.com/user/1140845013" target="_blank" rel="noopener" class="playlist-profile-link">
+      View full profile on Spotify
+    </a>
   </section>
 
   <div class="section-sep"></div>
