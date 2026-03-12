@@ -561,18 +561,26 @@
 
     /* ── PLAYLISTS GRID ── */
     .playlist-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      display: flex;
       gap: 1.2rem;
-      max-width: 960px;
-      margin: 0 auto;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 0.5rem 0 1.5rem;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0, 240, 255, 0.3) transparent;
     }
+    .playlist-grid::-webkit-scrollbar { height: 6px; }
+    .playlist-grid::-webkit-scrollbar-track { background: transparent; }
+    .playlist-grid::-webkit-scrollbar-thumb { background: rgba(0, 240, 255, 0.3); border-radius: 3px; }
     .playlist-card {
       border-radius: 8px;
       overflow: hidden;
       border: 1px solid rgba(0, 240, 255, 0.12);
       background: rgba(255,255,255,0.03);
       transition: border-color 0.3s, box-shadow 0.3s;
+      flex: 0 0 300px;
+      scroll-snap-align: start;
     }
     .playlist-card:hover {
       border-color: var(--neon-cyan);
@@ -1089,9 +1097,6 @@
       </div>
       <div class="playlist-card">
         <iframe src="https://open.spotify.com/embed/playlist/3yE8MBUfpV0bUKhVpqANd3?theme=0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      </div>
-      <div class="playlist-card">
-        <iframe src="https://open.spotify.com/embed/playlist/3slYAF6Sf6DsuFjbuJsecP?theme=0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
       <div class="playlist-card">
         <iframe src="https://open.spotify.com/embed/playlist/63X81UVCtyw23fmRnmvfJi?theme=0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
